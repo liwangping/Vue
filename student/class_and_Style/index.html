@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div v-bind:class = "{active: isActive }"></div>
+    <div class="static" v-bind:class = "{active: isActive, 'text-danger': hasError">Hello Vue</div>
+    <!-- <div v-bind:class = "classObject"></div> -->
+    <div v-bind:class="classObject">计算模式</div>
+   <script>
+        // new Vue({
+        //     data :{
+        //         isActive: true,
+        //         hasError: false
+        //     },
+        //     classObject: {
+        //         active: true,
+        //         'text-danger': false
+        //     }
+        // })
+        new Vue({
+            data: {
+                isActive: true,
+                error: null
+            },
+            computed: {
+                classObject: function (){
+                    return {
+                        active: this.isActive && !this.error,
+                        'text-danger': this.error && this.error.type === 'fatal'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

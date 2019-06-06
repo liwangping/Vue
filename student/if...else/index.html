@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h1 v-if = "awesome">Vue is awesome!</h1>
+    <h1 v-else>Oh no</h1>
+    <template v-if = "ok"> 
+        <h1>Title</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </template>
+    <div v-if="Math.random() > 0.5">
+        Now you see me
+    </div>
+    <div v-else>
+        Now you don't
+    </div>
+    <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username">
+          </template>
+          <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address">
+    </template>
+    <li v-for = "n in evenNumbers">{{ n }}</li>
+    <div>
+        <span v-for = "n in 10">{{ n }}</span>
+    </div>
+    <div>
+            <span v-for="n in 10">{{ n }} </span>
+    </div>
+    <li v-for="n in even(numbers)">{{ n }}</li>
+    <script>
+        var vm = new Vue({
+            data:{
+                userProfile:{
+                    name: 'Anika'
+                },
+                a: 1,
+                numbers: [1,2,3,4,5]
+            },
+            computed: {
+                evenNumber:function (){
+                    return this.numbers.filter(function (number) {
+                        return number % 2 === 0
+                        console.log('number: ', number);
+                    })
+                }
+            },
+        })
+        //vm.a是响应式的
+
+        vm.b = 2
+        //vm.b不是响应式的
+        Vue.set(vm.userProfile, 'age', 27)
+        vm.userProfile = Object.assign({}, vm.userProfile,{
+            age: 27,
+            favoriteColor: 'Vue Green'
+        })
+        console.log(vm.userProfile)
+
+    </script>
+</body>
+</html>
