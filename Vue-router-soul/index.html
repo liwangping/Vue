@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,
+        body {
+            scroll-behavior: smooth;
+        }
+        .box {
+            height: 5000px;
+            background-color: green;
+            margin-bottom: 20px;
+        }
+        .pink {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <a id="top"></a>
+    <div class="box pink"></div>
+    <a href="" id="home"></a>
+    <div class="box"></div>
+    <a href="#top">回到頂部</a>
+    <a href="#bottom">回到底部</a>
+    <script>
+        window.addEventListener('hashchange',function (params) {
+            console.log('render');
+        })
+    </script>
+</body>
+</html>
