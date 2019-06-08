@@ -26,7 +26,6 @@
                     <Col :xs = "{ span: 6, offset: 4}">
                         <Button type="primary" @click="formLoginReset('formLogin')">重置</Button>
                     </Col>
-                    
                 </Row>
             </FormItem>
         </i-form>
@@ -57,10 +56,9 @@ export default {
       handleSubmit (name){
           this.$refs[name].validate( valid => {
               sessionStorage.setItem('user', JSON.stringify(this.formLogin.username))
-              console.log(111111111)
               if (valid) {
                   this.$Message.success('提交成功'),
-                  this.$router.push({path:'/table'})
+                  this.$router.push({path:'/home'})
               }else {
                   this.$Message.error('登陆失败')
               }
