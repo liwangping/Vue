@@ -134,6 +134,9 @@
 </script>
 
 <style scope>
+.home{
+  background-color: rgba(245, 247, 249, 1)
+}
 .home, .layout{
   width: 100%;
   height: 100%;

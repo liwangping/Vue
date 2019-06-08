@@ -1,5 +1,9 @@
 <template>
-    <div id="myChart" :style="{width:'300px',height:'300px'}"></div>
+    <div class="Chart_list">
+        <Col :span="spanLeft"  >
+        <div id="myChart" :style="{width:'',height:'300px'}"></div>
+        </Col>
+    </div>
 </template>
 <script>
 
@@ -7,7 +11,7 @@ export default {
     name: 'eCharts',
     data () {
         return {
-        msg: 'Welcome to Your Vue.js App'
+            spanLeft: 12
         }
     },
     mounted(){
@@ -19,7 +23,7 @@ export default {
             var myChart = this.$echarts.init(document.getElementById('myChart'))
             // 绘制图表
             myChart.setOption({
-                title: { text: '在Vue中使用echarts' },
+                title: { text: 'Column Chart' },
                 tooltip: {},
                 xAxis: {
                     data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
@@ -36,5 +40,10 @@ export default {
 }
 </script>
 <style scoped>
-
+    .Chart_list{
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        padding: 30px;
+    }
 </style>
