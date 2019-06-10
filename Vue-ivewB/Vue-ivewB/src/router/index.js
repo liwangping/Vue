@@ -23,7 +23,8 @@ export default new Router({
       children: [
         {path: '/home_table', name:'表格', component:HomeTable},
         {path: '/form', name:'表单', component:Form},
-        {path: '/echarts', name:'echarts', component:Echarts}
+        {path: '/echarts', name:'echarts', component:Echarts},
+        // {path: '/echarts', name:'echarts', component:common/Alert}
       ]
     }
   ]

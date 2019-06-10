@@ -4,22 +4,26 @@
               <div class="table">
                 <div>
                     <Table border :columns="columns7" :data="data6"></Table>
-                    <!-- <Button @click="handleSelectAll(true)">Set all selected</Button>
-                    <Button @click="handleSelectAll(false)">Cancel all selected</Button> -->
+                    <Alert :msg = 'message' v-if="isAlert" @fromChild = "getMsgFromChild"></Alert>
                 </div>
               </div>
       </div>
+         
       <div class="page_number">
-         <Page :total="100" />
+         <Page :total="100" show-total />
       </div>
+    
     </div> 
 </template>
 
 <script>
+  import Alert from "@/components/common/Alert"
   export default {
     name: 'Home',
     data() {
       return {
+        isAlert: false,
+        message: '菜菜好帅',
         columns7: [
                     {
                         type: 'selection',
@@ -79,7 +83,9 @@
                                     },
                                     on: {
                                         click: () => {
-                                            this.show(params.index)
+                                            // this.show(params.index)
+                                            this.isAlert = true
+                                            this.message = params.index
                                         }
                                     }
                                 }, '查看'),
@@ -112,8 +118,7 @@
                         age: 18,
                         birth:'2007-07-25',
                         sex: '男'
-                    },
-                    {
+                    },{
                         name: '段芳',
                         address: '海口省 海口市 龙华区',
                         age: 18,
@@ -126,9 +131,19 @@
                         age: 18,
                         birth:'2007-07-25',
                         sex: '男'
-                    }
+                    },
+                    {
+                        name: '段芳',
+                        address: '海口省 海口市 龙华区',
+                        age: 18,
+                        birth:'2007-07-25',
+                        sex: '男'
+                    },
                 ]
             }
+        },
+        components: {
+            Alert
         },
         methods: {
             show (index) {
@@ -139,6 +154,10 @@
             },
             remove (index) {
                 this.data6.splice(index, 1);
+            },
+            getMsgFromChild(data){
+                console.log(data)
+                this.isAlert = data
             }
         }
     }
